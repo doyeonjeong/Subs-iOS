@@ -11,8 +11,6 @@ class BookmarkMainViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        testFetchData()
     }
 
     // MARK: - Table view data source
