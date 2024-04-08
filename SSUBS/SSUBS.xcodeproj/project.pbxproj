@@ -15,6 +15,10 @@
 		3E35858B2BC380B2001934A5 /* SubwayMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E35858A2BC380B2001934A5 /* SubwayMainViewController.swift */; };
 		3E35858D2BC382A3001934A5 /* BusMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E35858C2BC382A3001934A5 /* BusMainViewController.swift */; };
 		3E35858F2BC3831C001934A5 /* BookmarkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E35858E2BC3831C001934A5 /* BookmarkMainViewController.swift */; };
+		3E3585952BC39521001934A5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3585942BC39521001934A5 /* Constant.swift */; };
+		3E3585972BC39535001934A5 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3585962BC39535001934A5 /* UIViewController+Extension.swift */; };
+		3E3585992BC397DC001934A5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3585982BC397DC001934A5 /* MainTabBarController.swift */; };
+		3E35859D2BC3BA15001934A5 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E35859C2BC3BA15001934A5 /* TestModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,11 @@
 		3E35858A2BC380B2001934A5 /* SubwayMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayMainViewController.swift; sourceTree = "<group>"; };
 		3E35858C2BC382A3001934A5 /* BusMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusMainViewController.swift; sourceTree = "<group>"; };
 		3E35858E2BC3831C001934A5 /* BookmarkMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkMainViewController.swift; sourceTree = "<group>"; };
+		3E3585912BC39192001934A5 /* secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = secret.xcconfig; sourceTree = "<group>"; };
+		3E3585942BC39521001934A5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		3E3585962BC39535001934A5 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		3E3585982BC397DC001934A5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3E35859C2BC3BA15001934A5 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +96,14 @@
 		3E3585842BC37F69001934A5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				3E35859B2BC3B732001934A5 /* Models */,
 				3E3585822BC37F46001934A5 /* Application */,
+				3E35859A2BC397F0001934A5 /* MainView */,
 				3E3585872BC37FB0001934A5 /* BookMarkView */,
 				3E3585882BC37FDC001934A5 /* BusView */,
 				3E3585892BC37FF6001934A5 /* SubwayView */,
+				3E3585932BC394FD001934A5 /* Extensions */,
+				3E3585922BC394EF001934A5 /* Utils */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -107,6 +120,7 @@
 		3E3585862BC37F7D001934A5 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				3E3585912BC39192001934A5 /* secret.xcconfig */,
 				3E3585772BC37D75001934A5 /* Assets.xcassets */,
 				3E35857C2BC37D75001934A5 /* Info.plist */,
 			);
@@ -135,6 +149,38 @@
 				3E35858A2BC380B2001934A5 /* SubwayMainViewController.swift */,
 			);
 			path = SubwayView;
+			sourceTree = "<group>";
+		};
+		3E3585922BC394EF001934A5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3E3585942BC39521001934A5 /* Constant.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3E3585932BC394FD001934A5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3E3585962BC39535001934A5 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3E35859A2BC397F0001934A5 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				3E3585982BC397DC001934A5 /* MainTabBarController.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		3E35859B2BC3B732001934A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3E35859C2BC3BA15001934A5 /* TestModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,9 +256,13 @@
 			files = (
 				3E35858D2BC382A3001934A5 /* BusMainViewController.swift in Sources */,
 				3E35858F2BC3831C001934A5 /* BookmarkMainViewController.swift in Sources */,
+				3E3585992BC397DC001934A5 /* MainTabBarController.swift in Sources */,
+				3E35859D2BC3BA15001934A5 /* TestModel.swift in Sources */,
 				3E35858B2BC380B2001934A5 /* SubwayMainViewController.swift in Sources */,
 				3E35856F2BC37D74001934A5 /* AppDelegate.swift in Sources */,
+				3E3585972BC39535001934A5 /* UIViewController+Extension.swift in Sources */,
 				3E3585712BC37D74001934A5 /* SceneDelegate.swift in Sources */,
+				3E3585952BC39521001934A5 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +409,7 @@
 		};
 		3E3585802BC37D75001934A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E3585912BC39192001934A5 /* secret.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

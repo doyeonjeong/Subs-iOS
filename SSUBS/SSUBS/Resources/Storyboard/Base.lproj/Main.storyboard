@@ -8,19 +8,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="xGR-pO-mXk">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Lvi-gS-yD7" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Lvi-gS-yD7" customClass="MainTabBarController" customModule="SSUBS" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vhX-ZO-p5K">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="YQY-eX-uqP" kind="relationship" relationship="viewControllers" id="B59-xA-RMU"/>
                         <segue destination="xdd-ud-PHf" kind="relationship" relationship="viewControllers" id="6is-Ie-D0z"/>
                         <segue destination="G9R-Kc-A8E" kind="relationship" relationship="viewControllers" id="mMN-Qi-o09"/>
-                        <segue destination="YQY-eX-uqP" kind="relationship" relationship="viewControllers" id="B59-xA-RMU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbh-FN-D8D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -64,7 +64,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="dTw-eb-EGj"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="6rT-4c-bwP"/>
                 </viewController>
@@ -72,11 +72,12 @@
             </objects>
             <point key="canvasLocation" x="1073" y="1477"/>
         </scene>
-        <!--Item-->
+        <!--즐겨찾기-->
         <scene sceneID="cdv-6r-Elf">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lRV-qa-gXV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xdd-ud-PHf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="EOG-Hg-Xzs"/>
+                    <tabBarItem key="tabBarItem" title="즐겨찾기" id="EOG-Hg-Xzs"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HIy-a5-V7z">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -87,7 +88,6 @@
                         <segue destination="CAp-ZS-lOu" kind="relationship" relationship="rootViewController" id="9Ae-Fo-kJO"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lRV-qa-gXV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="65" y="725"/>
         </scene>
@@ -120,11 +120,11 @@
             </objects>
             <point key="canvasLocation" x="65" y="1477"/>
         </scene>
-        <!--Item-->
+        <!--지하철-->
         <scene sceneID="iWx-1G-7ye">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G9R-Kc-A8E" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="285-QG-8xY"/>
+                    <tabBarItem key="tabBarItem" title="지하철" id="285-QG-8xY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nCH-7J-wuO">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -139,11 +139,11 @@
             </objects>
             <point key="canvasLocation" x="1074" y="725"/>
         </scene>
-        <!--Item-->
+        <!--버스-->
         <scene sceneID="w0W-2i-PTU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YQY-eX-uqP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="400-yW-30b"/>
+                    <tabBarItem key="tabBarItem" title="버스" id="400-yW-30b"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="u4w-os-xDg">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
