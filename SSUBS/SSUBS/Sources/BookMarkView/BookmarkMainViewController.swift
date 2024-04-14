@@ -11,7 +11,9 @@ class BookmarkMainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getAlamoTest()
     }
+
 
     // MARK: - Table view data source
 

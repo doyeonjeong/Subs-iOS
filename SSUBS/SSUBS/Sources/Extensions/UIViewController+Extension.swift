@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 extension UIViewController {
     func testFetchData() {
@@ -33,5 +34,46 @@ extension UIViewController {
             }
         }
         session.resume()
+    }
+
+    func getAlamoTest() {
+        guard let API_KEY = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String else { return }
+        let url = "https://api.odsay.com/v1/api/searchStation"
+        let params: Parameters = [
+            "apiKey": API_KEY,
+            "lang": "0",
+            "stationName": "부산",
+            "displayCnt": "20",
+            "stationClass": "1",
+        ]
+        AF.request(url, method: .get, parameters: params).responseDecodable(of: BusStationSearchResult.self) { response in
+            switch response.result {
+            case .success(let rootData):
+                print(rootData.result.stations[0].stationName)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func fetchBusStations(keyword: String, displayCount: Int = 20) {
+        guard let API_KEY = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String else { return }
+        
+        let url = "https://api.odsay.com/v1/api/searchStation"
+        let params: Parameters = [
+            "apiKey": API_KEY,
+            "stationName": "\(keyword)",
+            "displayCnt": "20",
+            "stationClass": "1",
+        ]
+
+        AF.request(url, method: .get, parameters: params).responseDecodable(of: BusStationSearchResult.self) { response in
+            switch response.result {
+            case .success(let rootData):
+                print(rootData.result.stations[0].stationName)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
