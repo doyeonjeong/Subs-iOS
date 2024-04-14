@@ -31,9 +31,9 @@ struct BusStation: Codable {
     let stationID: Int
     let x, y: Double
     let cid: Int // 도시코드
-    let cityName, arsID, stationDo, gu, dong: String // arsID: 버스 정류장 고유번호(5자리) 01-234
+    let cityName, stationDo, gu, dong: String
     let busInfo: [BusInfo]
-    let localStationID, ebid, stationDirectionName: String // ebid: 버스 정류장 고유번호(5자리) 01-234
+    let localStationID, ebid, stationDirectionName, arsID: String? // ebid, arsID: 버스 정류장 고유번호(5자리) 01-234
     
     enum CodingKeys: String, CodingKey {
         case stationName, stationID, x, y

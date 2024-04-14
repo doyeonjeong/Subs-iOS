@@ -31,10 +31,11 @@ struct SubwayStation: Codable {
     let stationID: Int
     let x, y: Double
     let cid: Int
-    let cityName, arsID, stationDo, gu: String
+    let cityName, stationDo, gu: String
     let dong: String
     let type: Int
-    let laneName, laneCity, ebid: String
+    let laneName, laneCity: String
+    let arsID, ebid: String?
 
     enum CodingKeys: String, CodingKey {
         case stationName, stationID, x, y
