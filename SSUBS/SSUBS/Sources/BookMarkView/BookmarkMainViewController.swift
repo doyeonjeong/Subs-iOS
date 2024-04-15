@@ -11,8 +11,12 @@ class BookmarkMainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //fetchingDataSample()
+        
+        // 테이블 뷰에 셀 클래스 등록
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        // 데이터 로딩 함수 호출
+        fetchingDataSample()
     }
     
     private func fetchingDataSample() {
@@ -34,17 +38,28 @@ class BookmarkMainViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        switch section {
+            case 0:
+                return 1
+            case 1:
+                return 1
+            default:
+                return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        // TODO: - Config cell
+        if indexPath.section == 0 {
+            cell.textLabel?.text = "Bus Stations"
+        } else if indexPath.section == 1 {
+            cell.textLabel?.text = "Subway Stations"
+        }
         
         return cell
     }

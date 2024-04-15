@@ -40,7 +40,7 @@ extension BusMainViewController {
     }
     
     private func setupTableView() {
-        
+        tableView.separatorStyle = .none
         tableView.register(BusListHeaderView.self, forHeaderFooterViewReuseIdentifier: BusListHeaderView.identifier)
         tableView.register(NearbyBusStationCell.self, forCellReuseIdentifier: NearbyBusStationCell.identifier)
         tableView.register(RecentBusStationCell.self, forCellReuseIdentifier: RecentBusStationCell.identifier)
@@ -56,30 +56,30 @@ extension BusMainViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-            case 0:
-                return 1
-            case 1:
-                return buses.count
-            default:
-                return 0
+        case 0:
+            return 1
+        case 1:
+            return buses.count
+        default:
+            return 0
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-            case 0:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: NearbyBusStationCell.identifier, for: indexPath) as? NearbyBusStationCell
-                else { return NearbyBusStationCell(style: .default, reuseIdentifier: NearbyBusStationCell.identifier) }
-                cell.buses = buses
-                return cell
-            case 1:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentBusStationCell.identifier, for: indexPath) as? RecentBusStationCell
-                else { return RecentBusStationCell(style: .default, reuseIdentifier: RecentBusStationCell.identifier) }
-                cell.selectionStyle = .none
-                cell.config(buses[indexPath.row])
-                return cell
-            default:
-                return UITableViewCell()
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: NearbyBusStationCell.identifier, for: indexPath) as? NearbyBusStationCell
+            else { return NearbyBusStationCell(style: .default, reuseIdentifier: NearbyBusStationCell.identifier) }
+            cell.buses = buses
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentBusStationCell.identifier, for: indexPath) as? RecentBusStationCell
+            else { return RecentBusStationCell(style: .default, reuseIdentifier: RecentBusStationCell.identifier) }
+            cell.selectionStyle = .none
+            cell.config(buses[indexPath.row])
+            return cell
+        default:
+            return UITableViewCell()
         }
     }
 }
@@ -88,9 +88,9 @@ extension BusMainViewController {
 extension BusMainViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-            case 0: return 130
-            case 1: return 100
-            default: return 0
+        case 0: return 130
+        case 1: return 100
+        default: return 0
         }
     }
     
@@ -101,14 +101,14 @@ extension BusMainViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: BusListHeaderView.identifier) as? BusListHeaderView else { return UIView() }
         switch section {
-            case 0:
-                headerView.setTitleLabelText("주변 정류장")
-                return headerView
-            case 1:
-                headerView.setTitleLabelText("최근 검색어")
-                return headerView
-            default:
-                return UIView()
+        case 0:
+            headerView.setTitleLabelText("주변 정류장")
+            return headerView
+        case 1:
+            headerView.setTitleLabelText("최근 검색어")
+            return headerView
+        default:
+            return UIView()
         }
     }
 }

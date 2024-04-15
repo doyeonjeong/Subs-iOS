@@ -19,6 +19,7 @@ class BusSearchViewController: UIViewController, UITableViewDataSource, UISearch
         setupTableView()
         
         view.backgroundColor = .surface
+        tableView.separatorStyle = .none
         title = "Search"
     }
     

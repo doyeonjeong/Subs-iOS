@@ -2,28 +2,36 @@ import UIKit
 
 class SubwayMainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var mainStationTableView: UITableView! // mainStationTableView 아웃렛 추가
+    lazy var mainStationTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return tableView
+    }()
     
-    let stations = ["Station 1", "Station 2", "Station 3"] // 예시로 사용할 역 이름 배열
+    let stations = ["Station 1", "Station 2", "Station 3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mainStationTableView.rowHeight = 80 
-        mainStationTableView.dataSource = self
-        mainStationTableView.delegate = self
-        
-        // mainStationViewLabel 설정
-                if let mainStationViewLabel = view.viewWithTag(11) as? UILabel {
-                    mainStationViewLabel.textColor = .black // 색상 변경
-                    mainStationViewLabel.font = UIFont.boldSystemFont(ofSize: 32) // 폰트 변경
-                }
-                
-                // userSearchButton 설정
-                if let userSearchButton = view.viewWithTag(33) as? UIButton {
-                    userSearchButton.setTitleColor(.black, for: .normal) // 버튼 색상 변경
-                    userSearchButton.titleLabel?.font = UIFont.systemFont(ofSize: 18) // 버튼 폰트 변경
-                }
+        view.addSubview(mainStationTableView)
+        setupConstraints()
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            mainStationTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainStationTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            mainStationTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            mainStationTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    @objc func handleSearch() {
+        // 검색 버튼 눌렀을 때의 동작
+        print("Search button tapped")
     }
     
     // MARK: - UITableViewDataSource
@@ -35,14 +43,11 @@ class SubwayMainViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainStationcell", for: indexPath)
         
-        // 셀 내부의 레이블과 이미지 뷰를 태그를 사용하여 찾고 설정
-        let cellOfNearStationLabel = cell.viewWithTag(12) as! UILabel
-        cellOfNearStationLabel.text = stations[indexPath.row] // 역 이름 설정
-        cellOfNearStationLabel.textColor = .black // 색상 변경
-        cellOfNearStationLabel.font = UIFont.systemFont(ofSize: 16) // 폰트 변경
-        
-        let cellOfNearStationImage = cell.viewWithTag(22) as! UIImageView
-        cellOfNearStationImage.image = UIImage(named: "Star rate") // "LineDummy" 이미지 설정
+        // 셀 설정
+        cell.textLabel?.text = stations[indexPath.row]
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+        cell.textLabel?.textColor = .black
+        cell.imageView?.image = UIImage(named: "Star rate") // 이미지는 Asset에 추가되어 있어야 함
         
         return cell
     }
@@ -50,14 +55,8 @@ class SubwayMainViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 선택한 셀의 정보 가져오기
         let selectedStation = stations[indexPath.row]
-        
-        // 다음 화면으로 이동하기
-        if let arrivalStationVC = storyboard?.instantiateViewController(withIdentifier: "arrivalStation") as? ArrivalStationViewController {
-            arrivalStationVC.selectedStartStation = selectedStation // 선택한 역 정보 전달
-            navigationController?.pushViewController(arrivalStationVC, animated: true)
-        }
+        print("Selected station: \(selectedStation)")
+        // 다음 화면으로의 이동이나 다른 액션을 이곳에서 구현
     }
-    
 }

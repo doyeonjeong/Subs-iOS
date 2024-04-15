@@ -44,11 +44,11 @@ class NearbyBusStationCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
+    
 }
 
 // MARK: - Setup Methods
@@ -88,7 +88,7 @@ extension NearbyBusStationCell {
     func config(_ stations: [BusStation2]?) {
         guard let stations else { return }
         buses = stations
-
+        
         collectionView.reloadData()
     }
 }
@@ -118,11 +118,11 @@ extension NearbyBusStationCell: UICollectionViewDelegate {
         let collectionViewWidth = collectionView.frame.width
         let itemWidth = collectionViewWidth - 64 // 이전에 정의된 셀의 너비
         let spacing = CGFloat(10)
-
+        
         let currentPage = Int((offsetX + spacing * 0.5 + itemWidth / 2) / (itemWidth + spacing))
         pageControl.currentPage = max(0, min(pageControl.numberOfPages - 1, currentPage))
     }
-
+    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

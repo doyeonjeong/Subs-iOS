@@ -9,19 +9,58 @@ import UIKit
 
 class SubwayRouteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var selectedBookMark: String?  //BookMarkView의 cell정보
+    var selectedBookMark: String?
     var selectedStartStation: String?
     var selectedArrivalStation: String?
     
-    @IBOutlet weak var routeTableView: UITableView!
-    @IBOutlet weak var timeSelectButton: UIButton!
-    @IBOutlet weak var starButton: UIButton!
-    @IBOutlet weak var travelTimeLabel: UILabel!
-    @IBOutlet weak var timeTitleLabel: UILabel!
+    lazy var routeTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "metroRoute")
+        return tableView
+    }()
+    
+    lazy var timeSelectButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Select Time", for: .normal)
+        button.addTarget(self, action: #selector(actTimeSelectButton), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var starButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("★", for: .normal)
+        button.addTarget(self, action: #selector(actStarButton), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var travelTimeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Travel Time: 약 30분"  // Initial text with default travel time
+        return label
+    }()
+    
+    lazy var timeTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Time"
+        return label
+    }()
+    
+    lazy var pickerView: UIPickerView = {
+        let picker = UIPickerView()
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.dataSource = self
+        picker.delegate = self
+        return picker
+    }()
     
     let routes = ["노선 1", "노선 2", "노선 3", "노선 4", "노선 5"]
-    
-    // 피커 뷰의 데이터
     let weekdays = ["평일", "주말"]
     let hours = Array(0...23)
     let minutes = Array(0...59)
@@ -29,50 +68,45 @@ class SubwayRouteViewController: UIViewController, UITableViewDelegate, UITableV
     var selectedWeekday: String = "평일"
     var selectedHour: Int = 0
     var selectedMinute: Int = 0
+    var updateTime: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        routeTableView.dataSource = self
-        routeTableView.delegate = self
-        
-        travelTimeLabel.text = "약 30분"
-        
+        setupUI()
         updateTimeSelectButtonTitle()
     }
     
-    var updateTime: Date?
-    
-    func updateTimeSelectButtonTitle() {
-        let date = updateTime ?? Date()
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.weekday, .hour, .minute], from: date)
+    private func setupUI() {
+        view.addSubview(routeTableView)
+        view.addSubview(timeSelectButton)
+        view.addSubview(starButton)
+        view.addSubview(travelTimeLabel)
+        view.addSubview(timeTitleLabel)
+        view.addSubview(pickerView)
         
-        // 요일
-          let weekday = components.weekday ?? 1
-          if weekday >= 2 && weekday <= 6 {
-              selectedWeekday = "평일"
-          } else {
-              selectedWeekday = "주말"
-          }
-        
-        // 시간
-        let hour = components.hour ?? 0
-        let minute = components.minute ?? 0
-        selectedHour = hour
-        selectedMinute = minute
-        
-        
-        // 버튼 타이틀
-        let formattedTime = String(format: "출발시간. %02d:%02d", selectedHour, selectedMinute)
-        timeSelectButton.setTitle(formattedTime, for: .normal)
-        
-        
-        print(formattedTime)
-        
-        
+        setupConstraints()
     }
     
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            routeTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            routeTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            routeTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            routeTableView.bottomAnchor.constraint(equalTo: timeSelectButton.topAnchor, constant: -10),
+            
+            timeSelectButton.heightAnchor.constraint(equalToConstant: 50),
+            timeSelectButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            timeSelectButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            timeSelectButton.bottomAnchor.constraint(equalTo: starButton.topAnchor, constant: -10),
+            
+            starButton.heightAnchor.constraint(equalToConstant: 50),
+            starButton.widthAnchor.constraint(equalToConstant: 50),
+            starButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            starButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+        ])
+    }
+    
+    // TableView DataSource and Delegate methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return routes.count
     }
@@ -80,107 +114,10 @@ class SubwayRouteViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "metroRoute", for: indexPath)
         cell.textLabel?.text = routes[indexPath.row]
-        if let viewToRound = cell.viewWithTag(99) {
-            let size = min(viewToRound.frame.width, viewToRound.frame.height)
-            viewToRound.layer.cornerRadius = size / 2
-            viewToRound.clipsToBounds = true
-        }
         return cell
     }
     
-    @IBAction func homeButton(_ sender: UIButton) {
-            if let navigationController = self.navigationController {
-                navigationController.popToRootViewController(animated: true)
-            }
-        }
-    
-    func saveBookMark() {
-        // 출발역과 도착역 정보 저장
-        selectedBookMark = "출발역: \(selectedStartStation ?? "") 도착역: \(selectedArrivalStation ?? "")"
-        
-  /*      // BookMarkView에 정보 전달 (예: Delegate 또는 NotificationCenter를 활용하여 전달)
-        // 예시로 Delegate를 활용한 방법
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            if let bookmarkViewController = appDelegate.window?.rootViewController as? BookMarkViewController {
-                bookmarkViewController.bookMarkUpdated(bookMark: selectedBookMark)
-            }
-        } */
-    }
-
-    func removeBookMark() {
-        // 출발역과 도착역 정보 삭제
-        selectedBookMark = nil
-        
- /*       // BookMarkView에서 해당 정보 삭제 (예: Delegate 또는 NotificationCenter를 활용하여 삭제)
-        // 예시로 Delegate를 활용한 방법
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            if let bookmarkViewController = appDelegate.window?.rootViewController as? BookMarkViewController {
-                bookmarkViewController.bookMarkRemoved()
-            }
-        } */
-    }
-    
-    @IBAction func actStarButton(_ sender: Any) {
-        if let button = sender as? UIButton {
-                button.isSelected = !button.isSelected
-                if button.isSelected {
-                    button.setImage(UIImage(named: "Star rate"), for: .normal)
-                    
-                    saveBookMark() // BookMark 저장 및 전달
-                } else {
-                    button.setImage(UIImage(named: "Star border"), for: .normal)
-                    
-                    removeBookMark() // BookMark 삭제
-                }
-            }
-        }
-    
-    @IBAction func actTimeSelectButton(_ sender: Any) {
-        
-        // Alert 생성
-        let alert = UIAlertController(title: "시간 선택", message: nil, preferredStyle: .alert)
-        
-        // 피커 뷰 생성
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        
-        // 피커 뷰 추가
-        alert.view.addSubview(pickerView)
-        
-        // 피커 뷰 오토레이아웃
-        pickerView.translatesAutoresizingMaskIntoConstraints = false
-        pickerView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 50).isActive = true
-        pickerView.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant: 20).isActive = true
-        pickerView.trailingAnchor.constraint(equalTo: alert.view.trailingAnchor, constant: -20).isActive = true
-        pickerView.bottomAnchor.constraint(equalTo: alert.view.bottomAnchor, constant: -50).isActive = true
-        
-        // 현재 시간을 기본값으로 설정
-        let date = Date()
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour, .minute], from: date)
-        let hour = components.hour ?? 0
-        let minute = components.minute ?? 0
-        
-        pickerView.selectRow(hour, inComponent: 2, animated: true)
-        pickerView.selectRow(minute, inComponent: 3, animated: true)
-        
-        
-        // 확인
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { action in
-            // 사용자가 확인 버튼을 누른 경우 선택한 값을 적용하고 화면에 반영
-            self.updateTimeSelectButtonTitle()
-        }))
-        
-        // 취소
-        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
-        
-        // Alert 표시
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    // MARK: - UIPickerViewDataSource
-    
+    // UIPickerView DataSource and Delegate methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3 // 요일, 시간, 분
     }
@@ -198,39 +135,60 @@ class SubwayRouteViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    // MARK: - UIPickerViewDelegate
-          
-          func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-              switch component {
-              case 0:
-                  return weekdays[row]
-              case 1:
-                  return "\(hours[row])시"
-              case 2:
-                  return "\(minutes[row])분"
-              default:
-                  return nil
-              }
-          }
-          
-          func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-              switch component {
-              case 0:
-                  selectedWeekday = weekdays[row]
-              case 1:
-                  selectedHour = hours[row]
-              case 2:
-                  selectedMinute = minutes[row]
-              default:
-                  break
-              }
-              // 선택한 시간을 updateTime에 저장
-                let calendar = Calendar.current
-                var components = calendar.dateComponents([.year, .month, .day], from: Date())
-                components.hour = selectedHour
-                components.minute = selectedMinute
-                updateTime = calendar.date(from: components)
-                
-              updateTimeSelectButtonTitle()
-          }
-      }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch component {
+        case 0:
+            return weekdays[row] // Return the weekday based on the row index
+        case 1:
+            return "\(hours[row])시" // Return the hour suffixed with '시', which stands for 'hour' in Korean
+        case 2:
+            return "\(minutes[row])분" // Return the minute suffixed with '분', which stands for 'minute' in Korean
+        default:
+            return nil // If an unexpected component is queried, return nil
+        }
+    }
+    
+    // Method to update the title of the time select button
+    @objc func updateTimeSelectButtonTitle() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"  // Setting the format for the time
+        let timeString = formatter.string(from: updateTime ?? Date())  // Using current time if updateTime is nil
+        let title = "출발시간: \(timeString)"
+        timeSelectButton.setTitle(title, for: .normal)
+    }
+    
+    // Method triggered by the star button
+    @objc func actStarButton(sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            sender.setTitle("★", for: .normal)
+            //saveBookMark()  // Function to handle bookmark saving
+        } else {
+            sender.setTitle("☆", for: .normal)
+            //removeBookMark()  // Function to handle removing bookmark
+        }
+    }
+    
+    // Method triggered by the time select button
+    @objc func actTimeSelectButton(_ sender: UIButton) {
+        // Method to display a picker or action sheet to select time
+        let alert = UIAlertController(title: "시간 선택", message: nil, preferredStyle: .actionSheet)
+        alert.view.addSubview(pickerView)
+        
+        // Constraints for pickerView within the alert
+        pickerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pickerView.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+            pickerView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 20),
+            pickerView.widthAnchor.constraint(equalTo: alert.view.widthAnchor, multiplier: 0.9),
+            pickerView.bottomAnchor.constraint(equalTo: alert.view.bottomAnchor, constant: -45)
+        ])
+        
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
+            self.updateTimeSelectButtonTitle()
+        }))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        
+        present(alert, animated: true, completion: nil)
+    }
+}

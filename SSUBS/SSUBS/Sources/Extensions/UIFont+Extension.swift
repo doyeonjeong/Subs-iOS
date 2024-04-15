@@ -14,7 +14,7 @@ extension UIFont {
         }
         return font
     }
-
+    
     public enum PretendardType {
         case Black
         case Bold
@@ -25,7 +25,7 @@ extension UIFont {
         case Regular
         case SemiBold
         case Thin
-
+        
         var name: String {
             switch self {
             case .Black:

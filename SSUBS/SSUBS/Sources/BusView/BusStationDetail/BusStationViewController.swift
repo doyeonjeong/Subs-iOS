@@ -22,7 +22,7 @@ class BusStationViewController: UIViewController, UITableViewDataSource, UITable
             await fetchRealTimeInfoForStation()
         }
 //        startTimer()
-        view.backgroundColor = .white // Assume a default color for the background
+        view.backgroundColor = .white
     }
     
     private func setupTableView() {
@@ -30,6 +30,7 @@ class BusStationViewController: UIViewController, UITableViewDataSource, UITable
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.separatorStyle = .none
         view.addSubview(tableView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +45,6 @@ class BusStationViewController: UIViewController, UITableViewDataSource, UITable
     func fetchRealTimeInfoForStation() async {
         guard let station = busStation else { return }  // Only check for busStation
         do {
-            // Use station.stationID directly since it's non-optional
             let response = try await NetworkManager.shared.fetchBusStationRealTime(stationID: "\(station.stationID)")
             DispatchQueue.main.async {
                 self.updateUIWithRealTimeData(response: response)

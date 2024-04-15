@@ -31,7 +31,7 @@ extension UIColor {
             alpha: CGFloat(a) / 255
         )
     }
-
+    
     static let surfaceTint = UIColor(hex: "405F90")
     
     static let primary = UIColor(hex: "405F90")

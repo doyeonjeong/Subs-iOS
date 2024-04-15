@@ -8,7 +8,7 @@
 import UIKit
 
 class BusListHeaderView: UITableViewHeaderFooterView {
-
+    
     static let identifier = String(describing: BusListHeaderView.self)
     
     private var titleLabel: UILabel = {
@@ -20,7 +20,7 @@ class BusListHeaderView: UITableViewHeaderFooterView {
         label.textColor = .black
         return label
     }()
-
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setupHeaderView()
@@ -34,7 +34,7 @@ class BusListHeaderView: UITableViewHeaderFooterView {
     private func setupHeaderView() {
         contentView.addSubview(titleLabel)
     }
-
+    
     private func configureLayout() {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
@@ -47,5 +47,5 @@ class BusListHeaderView: UITableViewHeaderFooterView {
     func setTitleLabelText(_ title: String) {
         titleLabel.text = title
     }
-
+    
 }
