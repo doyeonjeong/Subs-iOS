@@ -9,8 +9,6 @@ import UIKit
 
 class BusMainViewController: UITableViewController {
     
-    let cellSpacingHeight: CGFloat = 5
-    
     var buses: [BusStation2] = [
         BusStation2(title: "(10101)정류장 A", direction: "동쪽 방향"),
         BusStation2(title: "(10102)정류장 B", direction: "서쪽 방향"),
