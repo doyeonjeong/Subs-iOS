@@ -27,11 +27,11 @@ class NetworkManager {
         ]
         
         return try await AF.request(url, method: .get, parameters: params)
-                    .serializingDecodable(BusArrivalResponse.self)
-                    .value
+            .serializingDecodable(BusArrivalResponse.self)
+            .value
     }
     
-    func fetchSubwayStations(keyword: String, displayCount: Int = 20) async throws -> SubwayStationSearchResult {
+    func fetchSubwayStations(keyword: String, displayCount: Int = 20) async throws -> SubwayStationSearchResponse {
         guard let API_KEY = Bundle.main.apiKey else { throw NetworkError.API("API 불러오기 실패") }
         
         let url = API.baseURL.rawValue + API.searchStation.rawValue
@@ -43,11 +43,11 @@ class NetworkManager {
         ]
         
         return try await AF.request(url, method: .get, parameters: params)
-                    .serializingDecodable(SubwayStationSearchResult.self)
-                    .value
+            .serializingDecodable(SubwayStationSearchResponse.self)
+            .value
     }
     
-    func fetchBusStations(keyword: String, displayCount: Int = 20) async throws -> BusStationSearchResult {
+    func fetchBusStations(keyword: String, displayCount: Int = 20) async throws -> BusStationSearchResponse {
         guard let API_KEY = Bundle.main.apiKey else { throw NetworkError.API("API 불러오기 실패") }
         
         let url = API.baseURL.rawValue + API.searchStation.rawValue
@@ -59,11 +59,11 @@ class NetworkManager {
         ]
         
         return try await AF.request(url, method: .get, parameters: params)
-                    .serializingDecodable(BusStationSearchResult.self)
-                    .value
+            .serializingDecodable(BusStationSearchResponse.self)
+            .value
     }
-
-    func fetchNearbyBusStations(currentLatitude: Double, currentLongitude: Double) async throws -> NearbyBusStationSearchResult {
+    
+    func fetchNearbyBusStations(currentLatitude: Double, currentLongitude: Double) async throws -> NearbyBusStationSearchResponse {
         guard let API_KEY = Bundle.main.apiKey else { throw NetworkError.API("API 불러오기 실패") }
         
         let url = API.baseURL.rawValue + API.pointSearch.rawValue
@@ -75,11 +75,11 @@ class NetworkManager {
         ]
         
         return try await AF.request(url, method: .get, parameters: params)
-                    .serializingDecodable(NearbyBusStationSearchResult.self)
-                    .value
+            .serializingDecodable(NearbyBusStationSearchResponse.self)
+            .value
     }
-
-    func fetchNearbySubwayStations(currentLatitude: Double, currentLongitude: Double) async throws -> NearbyBusStationSearchResult {
+    
+    func fetchNearbySubwayStations(currentLatitude: Double, currentLongitude: Double) async throws -> NearbyBusStationSearchResponse {
         guard let API_KEY = Bundle.main.apiKey else { throw NetworkError.API("API 불러오기 실패") }
         
         let url = API.baseURL.rawValue + API.pointSearch.rawValue
@@ -91,7 +91,7 @@ class NetworkManager {
         ]
         
         return try await AF.request(url, method: .get, parameters: params)
-                    .serializingDecodable(NearbyBusStationSearchResult.self)
-                    .value
+            .serializingDecodable(NearbyBusStationSearchResponse.self)
+            .value
     }
 }

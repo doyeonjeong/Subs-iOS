@@ -10,7 +10,7 @@ import CoreLocation
 class LocationManager: NSObject, CLLocationManagerDelegate {
     /// [싱글톤] 공유 인스턴스, 앱 전체에서 하나의 LocationManager를 사용하기 위함
     static let shared = LocationManager()
-
+    
     private var locationManager: CLLocationManager?
     
     private var currentLatitude: CLLocationDegrees? {
@@ -23,7 +23,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             currentLongitude = startUpdatingCurrentLocation().1
         }
     }
-
+    
     private override init() {
         super.init()
         self.locationManager = CLLocationManager()
@@ -31,7 +31,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         self.locationManager?.desiredAccuracy = kCLLocationAccuracyBest // 정확도를 최고로 설정
         self.locationManager?.requestWhenInUseAuthorization() // 앱 사용 중 위치 정보 사용 요청
     }
-
+    
     /// 사용자의 현재 위치 업데이트 시작
     func startUpdatingCurrentLocation() -> (CLLocationDegrees, CLLocationDegrees) {
         locationManager?.startUpdatingLocation()
@@ -39,10 +39,10 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             let currentLatitude,
             let currentLongitude
         else { return (0, 0) }
-            
+        
         return (currentLatitude, currentLongitude)
     }
-
+    
     /// 위치가 업데이트될 때마다 호출되는 메서드
     /// - Parameters:
     ///   - manager: 위치 관리자 인스턴스
