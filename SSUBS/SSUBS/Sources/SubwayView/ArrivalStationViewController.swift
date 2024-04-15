@@ -34,7 +34,8 @@ class ArrivalStationViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
         
-        // MARK: - UITableViewDataSource
+   
+    // MARK: - UITableViewDataSource
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return stations.count

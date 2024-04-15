@@ -88,6 +88,12 @@ class SubwayRouteViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    @IBAction func homeButton(_ sender: UIButton) {
+            if let navigationController = self.navigationController {
+                navigationController.popToRootViewController(animated: true)
+            }
+        }
+    
     @IBAction func actStarButton(_ sender: Any) {
         if let button = sender as? UIButton {
             button.isSelected = !button.isSelected
