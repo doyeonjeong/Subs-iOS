@@ -32,6 +32,10 @@
 		3E5F14AB2BCCB4CC00312FCA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3E5F14AA2BCCB4CC00312FCA /* Alamofire */; };
 		3E9284CD2BC7A4CD00B182D5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9284CC2BC7A4CD00B182D5 /* LocationManager.swift */; };
 		3EA06AA32BC783F10022489A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA06AA22BC783F10022489A /* UIColor+Extension.swift */; };
+		3EE9735C2BCCBB2C003FDFE6 /* NearbyBusStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE9735B2BCCBB2C003FDFE6 /* NearbyBusStationCell.swift */; };
+		3EE9735E2BCCBC2D003FDFE6 /* RecentBusStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE9735D2BCCBC2D003FDFE6 /* RecentBusStationCell.swift */; };
+		3EE973602BCCBD19003FDFE6 /* BusStationCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE9735F2BCCBD19003FDFE6 /* BusStationCarouselCell.swift */; };
+		3EE973622BCCBD54003FDFE6 /* BusListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE973612BCCBD54003FDFE6 /* BusListHeaderView.swift */; };
 		8F3FDC6B2BCC583500B696F3 /* secret.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8F3FDC6A2BCC583500B696F3 /* secret.xcconfig */; };
 		8F3FDC6D2BCC5A0900B696F3 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3FDC6C2BCC5A0900B696F3 /* Bundle+Extension.swift */; };
 		8F3FDC6F2BCC606100B696F3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3FDC6E2BCC606100B696F3 /* NetworkManager.swift */; };
@@ -68,6 +72,10 @@
 		3E35859C2BC3BA15001934A5 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		3E9284CC2BC7A4CD00B182D5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3EA06AA22BC783F10022489A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		3EE9735B2BCCBB2C003FDFE6 /* NearbyBusStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyBusStationCell.swift; sourceTree = "<group>"; };
+		3EE9735D2BCCBC2D003FDFE6 /* RecentBusStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentBusStationCell.swift; sourceTree = "<group>"; };
+		3EE9735F2BCCBD19003FDFE6 /* BusStationCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationCarouselCell.swift; sourceTree = "<group>"; };
+		3EE973612BCCBD54003FDFE6 /* BusListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListHeaderView.swift; sourceTree = "<group>"; };
 		8F3FDC6A2BCC583500B696F3 /* secret.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = secret.xcconfig; sourceTree = "<group>"; };
 		8F3FDC6C2BCC5A0900B696F3 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		8F3FDC6E2BCC606100B696F3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -196,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				3E35858C2BC382A3001934A5 /* BusMainViewController.swift */,
+				3EE9735A2BCCBAD6003FDFE6 /* Cells */,
 			);
 			path = BusView;
 			sourceTree = "<group>";
@@ -254,6 +263,17 @@
 				8F3FDC6E2BCC606100B696F3 /* NetworkManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		3EE9735A2BCCBAD6003FDFE6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3EE9735B2BCCBB2C003FDFE6 /* NearbyBusStationCell.swift */,
+				3EE9735D2BCCBC2D003FDFE6 /* RecentBusStationCell.swift */,
+				3EE9735F2BCCBD19003FDFE6 /* BusStationCarouselCell.swift */,
+				3EE973612BCCBD54003FDFE6 /* BusListHeaderView.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,12 +366,14 @@
 				3E35858D2BC382A3001934A5 /* BusMainViewController.swift in Sources */,
 				3E35858F2BC3831C001934A5 /* BookmarkMainViewController.swift in Sources */,
 				3E3585992BC397DC001934A5 /* MainTabBarController.swift in Sources */,
+				3EE9735C2BCCBB2C003FDFE6 /* NearbyBusStationCell.swift in Sources */,
 				8F8FBDEF2BC98CF3007A0A13 /* NearbySubwayStationSearchResult.swift in Sources */,
 				3EA06AA32BC783F10022489A /* UIColor+Extension.swift in Sources */,
 				8F8FBDEB2BC98C65007A0A13 /* SubwayStationSearchResult.swift in Sources */,
 				3E35859D2BC3BA15001934A5 /* TestModel.swift in Sources */,
 				8F8FBDE92BC98C42007A0A13 /* BusStationSearchResult.swift in Sources */,
 				3E35858B2BC380B2001934A5 /* SubwayMainViewController.swift in Sources */,
+				3EE973622BCCBD54003FDFE6 /* BusListHeaderView.swift in Sources */,
 				3E35856F2BC37D74001934A5 /* AppDelegate.swift in Sources */,
 				3E3585972BC39535001934A5 /* UIViewController+Extension.swift in Sources */,
 				8F3FDC6F2BCC606100B696F3 /* NetworkManager.swift in Sources */,
@@ -360,7 +382,9 @@
 				3E237CD92BC6982D001C538D /* UIFont+Extension.swift in Sources */,
 				3E3585952BC39521001934A5 /* Constant.swift in Sources */,
 				8F8FBDED2BC98CD4007A0A13 /* NearbyBusStationSearchResult.swift in Sources */,
+				3EE9735E2BCCBC2D003FDFE6 /* RecentBusStationCell.swift in Sources */,
 				8F3FDC6D2BCC5A0900B696F3 /* Bundle+Extension.swift in Sources */,
+				3EE973602BCCBD19003FDFE6 /* BusStationCarouselCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@ class BookmarkMainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchingDataSample()
+        //fetchingDataSample()
     }
     
     private func fetchingDataSample() {
