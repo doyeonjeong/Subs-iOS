@@ -15,6 +15,7 @@ enum API: String {
     case baseURL = "https://api.odsay.com/v1/api/"
     case searchStation = "searchStation?lang=0"
     case pointSearch = "pointSearch?lang=0"
+    case realtimeStation = "realtimeStation?lang=0"
     case busStationClass = "1"
     case subwayStationClass = "2"
     case key = "&apiKey="

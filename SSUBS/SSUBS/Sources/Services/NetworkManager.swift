@@ -17,6 +17,20 @@ class NetworkManager {
     static let shared = NetworkManager()
     private init() {}
     
+    func fetchBusStationRealTime(stationID: String) async throws -> BusArrivalResponse {
+        guard let API_KEY = Bundle.main.apiKey else { throw NetworkError.API("API 불러오기 실패") }
+        
+        let url = API.baseURL.rawValue + API.realtimeStation.rawValue
+        let params: Parameters = [
+            "apiKey": API_KEY,
+            "stationID": "\(stationID)"
+        ]
+        
+        return try await AF.request(url, method: .get, parameters: params)
+                    .serializingDecodable(BusArrivalResponse.self)
+                    .value
+    }
+    
     func fetchSubwayStations(keyword: String, displayCount: Int = 20) async throws -> SubwayStationSearchResult {
         guard let API_KEY = Bundle.main.apiKey else { throw NetworkError.API("API 불러오기 실패") }
         

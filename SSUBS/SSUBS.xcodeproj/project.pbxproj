@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E04E9B52BCD0F9700DB5F01 /* BusSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04E9B42BCD0F9700DB5F01 /* BusSearchViewController.swift */; };
 		3E04E9B82BCD122E00DB5F01 /* BusStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04E9B72BCD122E00DB5F01 /* BusStationViewController.swift */; };
+		3E04E9BA2BCD1E2500DB5F01 /* BusArrivalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04E9B92BCD1E2500DB5F01 /* BusArrivalResponse.swift */; };
 		3E237CD92BC6982D001C538D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E237CD82BC6982D001C538D /* UIFont+Extension.swift */; };
 		3E237CE42BC69975001C538D /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E237CDB2BC69974001C538D /* Pretendard-Regular.otf */; };
 		3E237CE52BC69975001C538D /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E237CDC2BC69974001C538D /* Pretendard-ExtraLight.otf */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		3E04E9B42BCD0F9700DB5F01 /* BusSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchViewController.swift; sourceTree = "<group>"; };
 		3E04E9B72BCD122E00DB5F01 /* BusStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationViewController.swift; sourceTree = "<group>"; };
+		3E04E9B92BCD1E2500DB5F01 /* BusArrivalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusArrivalResponse.swift; sourceTree = "<group>"; };
 		3E237CD82BC6982D001C538D /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		3E237CDB2BC69974001C538D /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		3E237CDC2BC69974001C538D /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				8F8FBDEA2BC98C64007A0A13 /* SubwayStationSearchResult.swift */,
 				8F8FBDEC2BC98CD4007A0A13 /* NearbyBusStationSearchResult.swift */,
 				8F8FBDEE2BC98CF3007A0A13 /* NearbySubwayStationSearchResult.swift */,
+				3E04E9B92BCD1E2500DB5F01 /* BusArrivalResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				3EE9735E2BCCBC2D003FDFE6 /* RecentBusStationCell.swift in Sources */,
 				8F3FDC6D2BCC5A0900B696F3 /* Bundle+Extension.swift in Sources */,
 				3EE973602BCCBD19003FDFE6 /* BusStationCarouselCell.swift in Sources */,
+				3E04E9BA2BCD1E2500DB5F01 /* BusArrivalResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
