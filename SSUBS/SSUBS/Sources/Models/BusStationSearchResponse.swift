@@ -1,5 +1,5 @@
 //
-//  BusStationSearchResult.swift
+//  BusStationSearchResponse.swift
 //  SSUBS
 //
 //  Created by DOYEON JEONG on 4/13/24.
@@ -10,7 +10,7 @@ import Foundation
 // MARK: - 대중교통 정류장 검색(Public Transit Stop) - 버스
 
 // 버스 검색 결과 전체를 나타내는 최상위 구조
-struct BusStationSearchResult: Codable {
+struct BusStationSearchResponse: Codable {
     let result: BusSearchResult
 }
 

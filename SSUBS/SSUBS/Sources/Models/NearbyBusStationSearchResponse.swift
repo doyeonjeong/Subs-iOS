@@ -1,5 +1,5 @@
 //
-//  NearbyBusStationSearchResult.swift
+//  NearbyBusStationSearchResponse.swift
 //  SSUBS
 //
 //  Created by DOYEON JEONG on 4/13/24.
@@ -10,7 +10,7 @@ import Foundation
 // MARK: - 반경내 대중교통 POI 검색(Public Transit POI within Radius) - 버스
 
 // 반경내 버스 검색 결과 전체를 나타내는 최상위 구조
-struct NearbyBusStationSearchResult: Codable {
+struct NearbyBusStationSearchResponse: Codable {
     let result: NearbyBusStationResult
 }
 
