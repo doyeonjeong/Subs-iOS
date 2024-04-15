@@ -19,14 +19,28 @@ class BusMainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .surface
+        
         setupTableView()
+        setupSearchIcon()
     }
-
+    
 }
 
 // MARK: - setup
 extension BusMainViewController {
+    private func setupSearchIcon() {
+        let searchIcon = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearchIcon))
+        self.navigationItem.rightBarButtonItem = searchIcon
+    }
+    
+    @objc private func didTapSearchIcon() {
+        let searchController = BusSearchViewController() // 검색을 처리할 뷰 컨트롤러 인스턴스
+        navigationController?.pushViewController(searchController, animated: true)
+    }
+    
     private func setupTableView() {
+        
         tableView.register(BusListHeaderView.self, forHeaderFooterViewReuseIdentifier: BusListHeaderView.identifier)
         tableView.register(NearbyBusStationCell.self, forCellReuseIdentifier: NearbyBusStationCell.identifier)
         tableView.register(RecentBusStationCell.self, forCellReuseIdentifier: RecentBusStationCell.identifier)
@@ -39,7 +53,7 @@ extension BusMainViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
             case 0:

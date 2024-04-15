@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E04E9B52BCD0F9700DB5F01 /* BusSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04E9B42BCD0F9700DB5F01 /* BusSearchViewController.swift */; };
+		3E04E9B82BCD122E00DB5F01 /* BusStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04E9B72BCD122E00DB5F01 /* BusStationViewController.swift */; };
 		3E237CD92BC6982D001C538D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E237CD82BC6982D001C538D /* UIFont+Extension.swift */; };
 		3E237CE42BC69975001C538D /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E237CDB2BC69974001C538D /* Pretendard-Regular.otf */; };
 		3E237CE52BC69975001C538D /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E237CDC2BC69974001C538D /* Pretendard-ExtraLight.otf */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E04E9B42BCD0F9700DB5F01 /* BusSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchViewController.swift; sourceTree = "<group>"; };
+		3E04E9B72BCD122E00DB5F01 /* BusStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationViewController.swift; sourceTree = "<group>"; };
 		3E237CD82BC6982D001C538D /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		3E237CDB2BC69974001C538D /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		3E237CDC2BC69974001C538D /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
@@ -97,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E04E9B62BCD120C00DB5F01 /* BusStationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3E04E9B72BCD122E00DB5F01 /* BusStationViewController.swift */,
+			);
+			path = BusStationDetail;
+			sourceTree = "<group>";
+		};
 		3E237CDA2BC69850001C538D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +215,8 @@
 		3E3585882BC37FDC001934A5 /* BusView */ = {
 			isa = PBXGroup;
 			children = (
+				3E04E9B62BCD120C00DB5F01 /* BusStationDetail */,
+				3EE973642BCD03BE003FDFE6 /* Search */,
 				3EE973632BCCF52E003FDFE6 /* Main */,
 			);
 			path = BusView;
@@ -282,6 +296,14 @@
 				3E35858C2BC382A3001934A5 /* BusMainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		3EE973642BCD03BE003FDFE6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3E04E9B42BCD0F9700DB5F01 /* BusSearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +397,7 @@
 				3E35858F2BC3831C001934A5 /* BookmarkMainViewController.swift in Sources */,
 				3E3585992BC397DC001934A5 /* MainTabBarController.swift in Sources */,
 				3EE9735C2BCCBB2C003FDFE6 /* NearbyBusStationCell.swift in Sources */,
+				3E04E9B82BCD122E00DB5F01 /* BusStationViewController.swift in Sources */,
 				8F8FBDEF2BC98CF3007A0A13 /* NearbySubwayStationSearchResult.swift in Sources */,
 				3EA06AA32BC783F10022489A /* UIColor+Extension.swift in Sources */,
 				8F8FBDEB2BC98C65007A0A13 /* SubwayStationSearchResult.swift in Sources */,
@@ -382,6 +405,7 @@
 				8F8FBDE92BC98C42007A0A13 /* BusStationSearchResult.swift in Sources */,
 				3E35858B2BC380B2001934A5 /* SubwayMainViewController.swift in Sources */,
 				3EE973622BCCBD54003FDFE6 /* BusListHeaderView.swift in Sources */,
+				3E04E9B52BCD0F9700DB5F01 /* BusSearchViewController.swift in Sources */,
 				3E35856F2BC37D74001934A5 /* AppDelegate.swift in Sources */,
 				3E3585972BC39535001934A5 /* UIViewController+Extension.swift in Sources */,
 				8F3FDC6F2BCC606100B696F3 /* NetworkManager.swift in Sources */,
