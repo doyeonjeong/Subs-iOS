@@ -9,7 +9,7 @@ import UIKit
 
 class SubwayRouteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var selectedBookMark: String?
+    var selectedBookMark: String?  //BookMarkView의 cell정보
     var selectedStartStation: String?
     var selectedArrivalStation: String?
     
@@ -94,18 +94,46 @@ class SubwayRouteViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
     
+    func saveBookMark() {
+        // 출발역과 도착역 정보 저장
+        selectedBookMark = "출발역: \(selectedStartStation ?? "") 도착역: \(selectedArrivalStation ?? "")"
+        
+  /*      // BookMarkView에 정보 전달 (예: Delegate 또는 NotificationCenter를 활용하여 전달)
+        // 예시로 Delegate를 활용한 방법
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            if let bookmarkViewController = appDelegate.window?.rootViewController as? BookMarkViewController {
+                bookmarkViewController.bookMarkUpdated(bookMark: selectedBookMark)
+            }
+        } */
+    }
+
+    func removeBookMark() {
+        // 출발역과 도착역 정보 삭제
+        selectedBookMark = nil
+        
+ /*       // BookMarkView에서 해당 정보 삭제 (예: Delegate 또는 NotificationCenter를 활용하여 삭제)
+        // 예시로 Delegate를 활용한 방법
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            if let bookmarkViewController = appDelegate.window?.rootViewController as? BookMarkViewController {
+                bookmarkViewController.bookMarkRemoved()
+            }
+        } */
+    }
+    
     @IBAction func actStarButton(_ sender: Any) {
         if let button = sender as? UIButton {
-            button.isSelected = !button.isSelected
-            if button.isSelected {
-                button.setImage(UIImage(named: "Star rate"), for: .normal)
-                // 변경된 상태 저장 로직 (예: UserDefaults 사용)
-            } else {
-                button.setImage(UIImage(named: "Star border"), for: .normal)
-                // 변경된 상태 저장 로직 (예: UserDefaults 사용)
+                button.isSelected = !button.isSelected
+                if button.isSelected {
+                    button.setImage(UIImage(named: "Star rate"), for: .normal)
+                    
+                    saveBookMark() // BookMark 저장 및 전달
+                } else {
+                    button.setImage(UIImage(named: "Star border"), for: .normal)
+                    
+                    removeBookMark() // BookMark 삭제
+                }
             }
         }
-    }
     
     @IBAction func actTimeSelectButton(_ sender: Any) {
         
@@ -120,7 +148,7 @@ class SubwayRouteViewController: UIViewController, UITableViewDelegate, UITableV
         // 피커 뷰 추가
         alert.view.addSubview(pickerView)
         
-        // 피커 뷰에 오토레이아웃 설정
+        // 피커 뷰 오토레이아웃
         pickerView.translatesAutoresizingMaskIntoConstraints = false
         pickerView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 50).isActive = true
         pickerView.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant: 20).isActive = true
@@ -138,13 +166,13 @@ class SubwayRouteViewController: UIViewController, UITableViewDelegate, UITableV
         pickerView.selectRow(minute, inComponent: 3, animated: true)
         
         
-        // 확인 버튼 추가
+        // 확인
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { action in
             // 사용자가 확인 버튼을 누른 경우 선택한 값을 적용하고 화면에 반영
             self.updateTimeSelectButtonTitle()
         }))
         
-        // 취소 버튼 추가
+        // 취소
         alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
         
         // Alert 표시
