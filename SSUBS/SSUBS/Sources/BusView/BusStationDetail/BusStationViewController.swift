@@ -70,7 +70,7 @@ class BusStationViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         if let bus = busStation?.busInfo[indexPath.row],
            let arrivals = busArrivalDetails[bus.busNo] {
-            let arrivalTexts = arrivals.map { "\($0.busPlateNo): \($0.arrivalSec) seconds" }.joined(separator: ", ")
+            let arrivalTexts = arrivals.map { "\($0.arrivalSec) 초" }.joined(separator: ", ")
             cell.textLabel?.text = "Route \(bus.busNo): \(arrivalTexts)"
         } else {
             cell.textLabel?.text = "Route \(busStation?.busInfo[indexPath.row].busNo ?? "Unknown"): No current arrival info"

@@ -11,6 +11,8 @@ import RealmSwift
 class UsersBusBookmark: Object {
     @Persisted var busNumber: String
     @Persisted var stationID: String
+    @Persisted var stationName: String
+    @Persisted var stationDirectionName: String
     @Persisted var isBookmarked: Bool
 }
 

@@ -22,9 +22,7 @@ struct NearbyBusStationResult: Codable {
 
 // 반경내 버스 정류장 정보
 struct NearbyBusStation: Codable {
-    let nonstopStation, stationClass: Int
     let stationName: String
     let stationID: Int
-    let x, y: Double
     let arsID, ebid: String
 }

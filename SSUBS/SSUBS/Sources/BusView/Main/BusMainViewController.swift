@@ -41,7 +41,7 @@ extension BusMainViewController {
     
     private func setupTableView() {
         tableView.separatorStyle = .none
-        tableView.register(BusListHeaderView.self, forHeaderFooterViewReuseIdentifier: BusListHeaderView.identifier)
+        tableView.register(SectionTitleHeaderView.self, forHeaderFooterViewReuseIdentifier: SectionTitleHeaderView.identifier)
         tableView.register(NearbyBusStationCell.self, forCellReuseIdentifier: NearbyBusStationCell.identifier)
         tableView.register(RecentBusStationCell.self, forCellReuseIdentifier: RecentBusStationCell.identifier)
     }
@@ -99,7 +99,7 @@ extension BusMainViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: BusListHeaderView.identifier) as? BusListHeaderView else { return UIView() }
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionTitleHeaderView.identifier) as? SectionTitleHeaderView else { return UIView() }
         switch section {
         case 0:
             headerView.setTitleLabelText("주변 정류장")

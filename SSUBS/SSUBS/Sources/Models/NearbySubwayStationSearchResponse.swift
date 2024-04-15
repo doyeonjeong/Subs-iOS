@@ -22,10 +22,8 @@ struct NearbySubwayStationResult: Codable {
 
 // 반경내 지하철 정류장 정보
 struct NearbySubwayStation: Codable {
-    let nonstopStation, stationClass: Int
     let stationName: String
     let stationID: Int
-    let x, y: Double
     let arsID: String
     let type: Int
     let laneName, laneCity, ebid: String

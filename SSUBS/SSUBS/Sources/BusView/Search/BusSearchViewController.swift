@@ -18,7 +18,7 @@ class BusSearchViewController: UIViewController, UITableViewDataSource, UISearch
         setupSearchBar()
         setupTableView()
         
-        view.backgroundColor = .surface
+        view.backgroundColor = .systemBackground
         tableView.separatorStyle = .none
         title = "Search"
     }
@@ -26,7 +26,9 @@ class BusSearchViewController: UIViewController, UITableViewDataSource, UISearch
     private func setupSearchBar() {
         searchBar = UISearchBar()
         searchBar.delegate = self
-        searchBar.placeholder = "버스 정류장을 검색해보세요."
+        searchBar.placeholder = "Search for a bus station."
+        searchBar.searchBarStyle = .minimal
+        searchBar.barTintColor = .systemBlue
         navigationItem.titleView = searchBar
     }
     
@@ -35,7 +37,7 @@ class BusSearchViewController: UIViewController, UITableViewDataSource, UISearch
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(SearchBusStationCell.self, forCellReuseIdentifier: SearchBusStationCell.identifier)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -44,6 +46,10 @@ class BusSearchViewController: UIViewController, UITableViewDataSource, UISearch
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60 // Set a fixed height for each cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -58,9 +64,9 @@ class BusSearchViewController: UIViewController, UITableViewDataSource, UISearch
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchBusStationCell.identifier, for: indexPath) as! SearchBusStationCell
         let station = stations[indexPath.row]
-        cell.textLabel?.text = station.stationName
+        cell.configure(with: station.stationName)
         return cell
     }
     
@@ -80,7 +86,6 @@ class BusSearchViewController: UIViewController, UITableViewDataSource, UISearch
                     self.tableView.reloadData()
                 }
             } catch {
-                // 에러 처리 예: 에러 메시지를 로그로 출력하거나 사용자에게 알림
                 print("Error fetching stations: \(error)")
                 DispatchQueue.main.async {
                     self.showErrorAlert(message: "Failed to fetch stations: \(error.localizedDescription)")
@@ -88,11 +93,5 @@ class BusSearchViewController: UIViewController, UITableViewDataSource, UISearch
             }
         }
     }
-    
-    private func showErrorAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
-    }
-    
 }
+
