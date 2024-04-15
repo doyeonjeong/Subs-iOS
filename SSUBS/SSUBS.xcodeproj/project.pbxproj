@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32BAA6612BCCBBE1006B0D36 /* StartStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BAA6602BCCBBE1006B0D36 /* StartStationViewController.swift */; };
+		32BAA6632BCCBBF6006B0D36 /* ArrivalStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BAA6622BCCBBF6006B0D36 /* ArrivalStationViewController.swift */; };
+		32BAA6652BCCBC26006B0D36 /* SubwayRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BAA6642BCCBC26006B0D36 /* SubwayRouteViewController.swift */; };
 		3E04E9B52BCD0F9700DB5F01 /* BusSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04E9B42BCD0F9700DB5F01 /* BusSearchViewController.swift */; };
 		3E04E9B82BCD122E00DB5F01 /* BusStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04E9B72BCD122E00DB5F01 /* BusStationViewController.swift */; };
 		3E04E9BA2BCD1E2500DB5F01 /* BusArrivalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04E9B92BCD1E2500DB5F01 /* BusArrivalResponse.swift */; };
@@ -39,7 +42,6 @@
 		3EE9735E2BCCBC2D003FDFE6 /* RecentBusStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE9735D2BCCBC2D003FDFE6 /* RecentBusStationCell.swift */; };
 		3EE973602BCCBD19003FDFE6 /* BusStationCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE9735F2BCCBD19003FDFE6 /* BusStationCarouselCell.swift */; };
 		3EE973622BCCBD54003FDFE6 /* BusListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE973612BCCBD54003FDFE6 /* BusListHeaderView.swift */; };
-		8F3FDC6B2BCC583500B696F3 /* secret.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8F3FDC6A2BCC583500B696F3 /* secret.xcconfig */; };
 		8F3FDC6D2BCC5A0900B696F3 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3FDC6C2BCC5A0900B696F3 /* Bundle+Extension.swift */; };
 		8F3FDC6F2BCC606100B696F3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3FDC6E2BCC606100B696F3 /* NetworkManager.swift */; };
 		8F8FBDE92BC98C42007A0A13 /* BusStationSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8FBDE82BC98C42007A0A13 /* BusStationSearchResult.swift */; };
@@ -49,6 +51,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
+		32BAA6602BCCBBE1006B0D36 /* StartStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStationViewController.swift; sourceTree = "<group>"; };
+		32BAA6622BCCBBF6006B0D36 /* ArrivalStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalStationViewController.swift; sourceTree = "<group>"; };
+		32BAA6642BCCBC26006B0D36 /* SubwayRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayRouteViewController.swift; sourceTree = "<group>"; };
 		3E04E9B42BCD0F9700DB5F01 /* BusSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusSearchViewController.swift; sourceTree = "<group>"; };
 		3E04E9B72BCD122E00DB5F01 /* BusStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationViewController.swift; sourceTree = "<group>"; };
 		3E04E9B92BCD1E2500DB5F01 /* BusArrivalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusArrivalResponse.swift; sourceTree = "<group>"; };
@@ -82,7 +88,6 @@
 		3EE9735D2BCCBC2D003FDFE6 /* RecentBusStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentBusStationCell.swift; sourceTree = "<group>"; };
 		3EE9735F2BCCBD19003FDFE6 /* BusStationCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationCarouselCell.swift; sourceTree = "<group>"; };
 		3EE973612BCCBD54003FDFE6 /* BusListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListHeaderView.swift; sourceTree = "<group>"; };
-		8F3FDC6A2BCC583500B696F3 /* secret.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = secret.xcconfig; sourceTree = "<group>"; };
 		8F3FDC6C2BCC5A0900B696F3 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		8F3FDC6E2BCC606100B696F3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8F8FBDE82BC98C42007A0A13 /* BusStationSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStationSearchResult.swift; sourceTree = "<group>"; };
@@ -199,7 +204,6 @@
 		3E3585862BC37F7D001934A5 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				8F3FDC6A2BCC583500B696F3 /* secret.xcconfig */,
 				3E3585772BC37D75001934A5 /* Assets.xcassets */,
 				3E35857C2BC37D75001934A5 /* Info.plist */,
 			);
@@ -228,6 +232,9 @@
 			isa = PBXGroup;
 			children = (
 				3E35858A2BC380B2001934A5 /* SubwayMainViewController.swift */,
+				32BAA6602BCCBBE1006B0D36 /* StartStationViewController.swift */,
+				32BAA6622BCCBBF6006B0D36 /* ArrivalStationViewController.swift */,
+				32BAA6642BCCBC26006B0D36 /* SubwayRouteViewController.swift */,
 			);
 			path = SubwayView;
 			sourceTree = "<group>";
@@ -375,7 +382,6 @@
 			files = (
 				3E3585782BC37D75001934A5 /* Assets.xcassets in Resources */,
 				3E237CEA2BC69975001C538D /* Pretendard-Bold.otf in Resources */,
-				8F3FDC6B2BCC583500B696F3 /* secret.xcconfig in Resources */,
 				3E237CE42BC69975001C538D /* Pretendard-Regular.otf in Resources */,
 				3E237CE72BC69975001C538D /* Pretendard-SemiBold.otf in Resources */,
 				3E237CE82BC69975001C538D /* Pretendard-Thin.otf in Resources */,
@@ -403,6 +409,7 @@
 				3E04E9B82BCD122E00DB5F01 /* BusStationViewController.swift in Sources */,
 				8F8FBDEF2BC98CF3007A0A13 /* NearbySubwayStationSearchResult.swift in Sources */,
 				3EA06AA32BC783F10022489A /* UIColor+Extension.swift in Sources */,
+				32BAA6652BCCBC26006B0D36 /* SubwayRouteViewController.swift in Sources */,
 				8F8FBDEB2BC98C65007A0A13 /* SubwayStationSearchResult.swift in Sources */,
 				3E35859D2BC3BA15001934A5 /* TestModel.swift in Sources */,
 				8F8FBDE92BC98C42007A0A13 /* BusStationSearchResult.swift in Sources */,
@@ -411,6 +418,7 @@
 				3E04E9B52BCD0F9700DB5F01 /* BusSearchViewController.swift in Sources */,
 				3E35856F2BC37D74001934A5 /* AppDelegate.swift in Sources */,
 				3E3585972BC39535001934A5 /* UIViewController+Extension.swift in Sources */,
+				32BAA6632BCCBBF6006B0D36 /* ArrivalStationViewController.swift in Sources */,
 				8F3FDC6F2BCC606100B696F3 /* NetworkManager.swift in Sources */,
 				3E9284CD2BC7A4CD00B182D5 /* LocationManager.swift in Sources */,
 				3E3585712BC37D74001934A5 /* SceneDelegate.swift in Sources */,
@@ -419,6 +427,7 @@
 				8F8FBDED2BC98CD4007A0A13 /* NearbyBusStationSearchResult.swift in Sources */,
 				3EE9735E2BCCBC2D003FDFE6 /* RecentBusStationCell.swift in Sources */,
 				8F3FDC6D2BCC5A0900B696F3 /* Bundle+Extension.swift in Sources */,
+				32BAA6612BCCBBE1006B0D36 /* StartStationViewController.swift in Sources */,
 				3EE973602BCCBD19003FDFE6 /* BusStationCarouselCell.swift in Sources */,
 				3E04E9BA2BCD1E2500DB5F01 /* BusArrivalResponse.swift in Sources */,
 			);
@@ -448,7 +457,6 @@
 /* Begin XCBuildConfiguration section */
 		3E35857D2BC37D75001934A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F3FDC6A2BCC583500B696F3 /* secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -512,7 +520,6 @@
 		};
 		3E35857E2BC37D75001934A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F3FDC6A2BCC583500B696F3 /* secret.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -569,7 +576,6 @@
 		};
 		3E3585802BC37D75001934A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F3FDC6A2BCC583500B696F3 /* secret.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -578,11 +584,12 @@
 				DEVELOPMENT_TEAM = 62SDS28JUT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SSUBS/Resources/SupportFiles/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치에서 가까운 정류장, 지하철역 정보를 제공해 드릴게요! 앱 사용 중 위치를 알려주시겠어요?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -602,7 +609,6 @@
 		};
 		3E3585812BC37D75001934A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F3FDC6A2BCC583500B696F3 /* secret.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -611,11 +617,12 @@
 				DEVELOPMENT_TEAM = 62SDS28JUT;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SSUBS/Resources/SupportFiles/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치에서 가까운 정류장, 지하철역 정보를 제공해 드릴게요! 앱 사용 중 위치를 알려주시겠어요?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
