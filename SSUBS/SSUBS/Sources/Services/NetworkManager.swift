@@ -14,10 +14,10 @@ enum NetworkError: Error {
 
 class NetworkManager {
     
-    static let shard = NetworkManager()
+    static let shared = NetworkManager()
     private init() {}
     
-    func fetchSubwayStations(keyword: String, displayCount: Int = 20) async throws -> SubwayStationSearchResponse {
+    func fetchSubwayStations(keyword: String, displayCount: Int = 20) async throws -> SubwayStationSearchResult {
         guard let API_KEY = Bundle.main.apiKey else { throw NetworkError.API("API 불러오기 실패") }
         
         let url = API.baseURL.rawValue + API.searchStation.rawValue
@@ -29,33 +29,29 @@ class NetworkManager {
         ]
         
         return try await AF.request(url, method: .get, parameters: params)
-                    .serializingDecodable(SubwayStationSearchResponse.self)
+                    .serializingDecodable(SubwayStationSearchResult.self)
                     .value
     }
     
-    func fetchBusStations(keyword: String, displayCount: Int = 20, completion: @escaping (Result<BusStationSearchResult, Error>) -> Void) {
-        guard let API_KEY = Bundle.main.apiKey else { return }
+    func fetchBusStations(keyword: String, displayCount: Int = 20) async throws -> BusStationSearchResult {
+        guard let API_KEY = Bundle.main.apiKey else { throw NetworkError.API("API 불러오기 실패") }
         
-        let url = "https://api.odsay.com/v1/api/searchStation"
+        let url = API.baseURL.rawValue + API.searchStation.rawValue
         let params: Parameters = [
             "apiKey": API_KEY,
             "stationName": "\(keyword)",
             "displayCnt": "\(displayCount)",
-            "stationClass": "1",
+            "stationClass": "\(API.busStationClass.rawValue)",
         ]
-
-        AF.request(url, method: .get, parameters: params).responseDecodable(of: BusStationSearchResult.self) { response in
-            switch response.result {
-            case .success(let rootData):
-                print(rootData.result.stations[0].stationName)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        
+        return try await AF.request(url, method: .get, parameters: params)
+                    .serializingDecodable(BusStationSearchResult.self)
+                    .value
     }
-    
-    func fetchNearbyBusStations(currentLatitude: Double, currentLongitude: Double, completion: @escaping (Result<NearbyBusStationSearchResult, Error>) -> Void) {
-        guard let API_KEY = Bundle.main.apiKey else { return }
+
+    func fetchNearbyBusStations(currentLatitude: Double, currentLongitude: Double) async throws -> NearbyBusStationSearchResult {
+        guard let API_KEY = Bundle.main.apiKey else { throw NetworkError.API("API 불러오기 실패") }
+        
         let url = API.baseURL.rawValue + API.pointSearch.rawValue
         let params: Parameters = [
             "apiKey": API_KEY,
@@ -64,18 +60,13 @@ class NetworkManager {
             "stationClass": "\(API.busStationClass.rawValue)"
         ]
         
-        AF.request(url, method: .get, parameters: params).responseDecodable(of: NearbyBusStationSearchResult.self) { response in
-            switch response.result {
-            case .success(let rootData):
-                print(rootData)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        return try await AF.request(url, method: .get, parameters: params)
+                    .serializingDecodable(NearbyBusStationSearchResult.self)
+                    .value
     }
 
-    func fetchNearbySubwayStations(currentLatitude: Double, currentLongitude: Double, completion: @escaping (Result<NearbySubwayStationSearchResult, Error>) -> Void) {
-        guard let API_KEY = Bundle.main.apiKey else { return }
+    func fetchNearbySubwayStations(currentLatitude: Double, currentLongitude: Double) async throws -> NearbyBusStationSearchResult {
+        guard let API_KEY = Bundle.main.apiKey else { throw NetworkError.API("API 불러오기 실패") }
         
         let url = API.baseURL.rawValue + API.pointSearch.rawValue
         let params: Parameters = [
@@ -84,15 +75,9 @@ class NetworkManager {
             "y": "\(currentLongitude)",
             "stationClass": "\(API.subwayStationClass.rawValue)"
         ]
-
-        AF.request(url, method: .get, parameters: params).responseDecodable(of: NearbySubwayStationSearchResult.self) { response in
-            switch response.result {
-            case .success(let rootData):
-                print(rootData)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        
+        return try await AF.request(url, method: .get, parameters: params)
+                    .serializingDecodable(NearbyBusStationSearchResult.self)
+                    .value
     }
-    
 }

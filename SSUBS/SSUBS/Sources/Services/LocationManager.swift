@@ -12,6 +12,17 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     static let shared = LocationManager()
 
     private var locationManager: CLLocationManager?
+    
+    private var currentLatitude: CLLocationDegrees? {
+        didSet {
+            currentLatitude = startUpdatingCurrentLocation().0
+        }
+    }
+    private var currentLongitude: CLLocationDegrees? {
+        didSet {
+            currentLongitude = startUpdatingCurrentLocation().1
+        }
+    }
 
     private override init() {
         super.init()
@@ -22,8 +33,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
 
     /// 사용자의 현재 위치 업데이트 시작
-    func startUpdatingCurrentLocation() {
+    func startUpdatingCurrentLocation() -> (CLLocationDegrees, CLLocationDegrees) {
         locationManager?.startUpdatingLocation()
+        guard
+            let currentLatitude,
+            let currentLongitude
+        else { return (0, 0) }
+            
+        return (currentLatitude, currentLongitude)
     }
 
     /// 위치가 업데이트될 때마다 호출되는 메서드

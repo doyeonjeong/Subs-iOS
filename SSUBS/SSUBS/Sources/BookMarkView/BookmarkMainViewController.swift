@@ -11,9 +11,25 @@ class BookmarkMainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getAlamoTest()
-    }
 
+        fetchingDataSample()
+    }
+    
+    private func fetchingDataSample() {
+        let (x, y) = LocationManager.shared.startUpdatingCurrentLocation()
+        
+        Task {
+            do {
+                print(try await NetworkManager.shared.fetchBusStations(keyword: "부산"))
+                print(try await NetworkManager.shared.fetchSubwayStations(keyword: "부산"))
+                
+                print(try await NetworkManager.shared.fetchNearbyBusStations(currentLatitude: x, currentLongitude: y))
+                print(try await NetworkManager.shared.fetchNearbySubwayStations(currentLatitude: x, currentLongitude: y))
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 
     // MARK: - Table view data source
 
