@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "Bus.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Bus@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Star border.png",
+      "filename" : "Bus@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "Bookmarks.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Bookmarks@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Star border.png",
+      "filename" : "Bookmarks@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
