@@ -9,8 +9,6 @@ import UIKit
 
 class BusMainViewController: UITableViewController {
     
-    let cellSpacingHeight: CGFloat = 5
-    
     var buses: [BusStation2] = [
         BusStation2(title: "(10101)정류장 A", direction: "동쪽 방향"),
         BusStation2(title: "(10102)정류장 B", direction: "서쪽 방향"),
@@ -63,6 +61,7 @@ extension BusMainViewController {
             case 1:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentBusStationCell.identifier, for: indexPath) as? RecentBusStationCell
                 else { return RecentBusStationCell(style: .default, reuseIdentifier: RecentBusStationCell.identifier) }
+                cell.selectionStyle = .none
                 cell.config(buses[indexPath.row])
                 return cell
             default:
@@ -73,7 +72,6 @@ extension BusMainViewController {
 
 // MARK: - UITableViewDelegate
 extension BusMainViewController {
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
             case 0: return 130

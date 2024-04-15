@@ -73,8 +73,8 @@ extension NearbyBusStationCell {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 8),
-            collectionView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -8)
+            collectionView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -16)
         ])
         
         NSLayoutConstraint.activate([
@@ -114,11 +114,15 @@ extension NearbyBusStationCell: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension NearbyBusStationCell: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let width = scrollView.frame.width - 10
-        let index = scrollView.contentOffset.x / width
-        let roundedIndex = round(index + 0.5)
-        self.pageControl.currentPage = Int(roundedIndex)
+        let offsetX = scrollView.contentOffset.x
+        let collectionViewWidth = collectionView.frame.width
+        let itemWidth = collectionViewWidth - 64 // 이전에 정의된 셀의 너비
+        let spacing = CGFloat(10)
+
+        let currentPage = Int((offsetX + spacing * 0.5 + itemWidth / 2) / (itemWidth + spacing))
+        pageControl.currentPage = max(0, min(pageControl.numberOfPages - 1, currentPage))
     }
+
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

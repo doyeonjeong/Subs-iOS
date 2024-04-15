@@ -29,7 +29,7 @@ class RecentBusStationCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .pretendard(type: .Medium, size: 16)
+        label.font = .pretendard(type: .Medium, size: 18)
         label.textColor = .black
         return label
     }()
@@ -37,7 +37,7 @@ class RecentBusStationCell: UITableViewCell {
     lazy var directionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .pretendard(type: .Light, size: 14)
+        label.font = .pretendard(type: .Light, size: 16)
         label.textColor = .darkGray
         return label
     }()
@@ -46,12 +46,12 @@ class RecentBusStationCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         let backgroundView = UIView(frame: CGRect(x: 0, y: 10, width: self.frame.width, height: self.frame.height - 20))
-            backgroundView.backgroundColor = .white // 배경색은 셀의 배경색과 동일하게 설정합니다.
-            self.backgroundView = backgroundView
+        backgroundView.backgroundColor = .white // 배경색은 셀의 배경색과 동일하게 설정합니다.
+        self.backgroundView = backgroundView
         
         setup()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -65,16 +65,16 @@ extension RecentBusStationCell {
         
         
         contentView.addSubview(clearBackgroundView)
-        contentView.backgroundColor = .clear // contentView의 배경색도 투명하게 설정합니다.
+        contentView.backgroundColor = .clear
         contentView.layer.cornerRadius = 8
-        contentView.clipsToBounds = true // contentView 내부의 컨텐츠가 둥근 모서리를 넘지 않도록 합니다.
+        contentView.clipsToBounds = true
         
         clearBackgroundView.addSubview(titleLabel)
         clearBackgroundView.addSubview(directionLabel)
         
         setupConstraints()
     }
-
+    
     private func addSubviews() {
         contentView.addSubview(clearBackgroundView)
         clearBackgroundView.addSubview(titleLabel)
@@ -82,23 +82,23 @@ extension RecentBusStationCell {
     }
     
     private func setupConstraints() {
-            NSLayoutConstraint.activate([
-                clearBackgroundView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-                clearBackgroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-                clearBackgroundView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-                clearBackgroundView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-                
-                titleLabel.topAnchor.constraint(equalTo: clearBackgroundView.topAnchor, constant: 16),
-                titleLabel.leadingAnchor.constraint(equalTo: clearBackgroundView.leadingAnchor, constant: 16),
-                titleLabel.trailingAnchor.constraint(equalTo: clearBackgroundView.trailingAnchor, constant: -16),
-                
-                directionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-                directionLabel.leadingAnchor.constraint(equalTo: clearBackgroundView.leadingAnchor, constant: 16),
-                directionLabel.trailingAnchor.constraint(equalTo: clearBackgroundView.trailingAnchor, constant: -16),
-                directionLabel.bottomAnchor.constraint(equalTo: clearBackgroundView.bottomAnchor, constant: -16)
-            ])
-        }
-
+        NSLayoutConstraint.activate([
+            clearBackgroundView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            clearBackgroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            clearBackgroundView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            clearBackgroundView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            
+            titleLabel.topAnchor.constraint(equalTo: clearBackgroundView.topAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: clearBackgroundView.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: clearBackgroundView.trailingAnchor, constant: -16),
+            
+            directionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            directionLabel.leadingAnchor.constraint(equalTo: clearBackgroundView.leadingAnchor, constant: 16),
+            directionLabel.trailingAnchor.constraint(equalTo: clearBackgroundView.trailingAnchor, constant: -16),
+            directionLabel.bottomAnchor.constraint(equalTo: clearBackgroundView.bottomAnchor, constant: -16)
+        ])
+    }
+    
 }
 
 extension RecentBusStationCell {

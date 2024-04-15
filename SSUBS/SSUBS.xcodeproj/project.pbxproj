@@ -203,8 +203,7 @@
 		3E3585882BC37FDC001934A5 /* BusView */ = {
 			isa = PBXGroup;
 			children = (
-				3E35858C2BC382A3001934A5 /* BusMainViewController.swift */,
-				3EE9735A2BCCBAD6003FDFE6 /* Cells */,
+				3EE973632BCCF52E003FDFE6 /* Main */,
 			);
 			path = BusView;
 			sourceTree = "<group>";
@@ -274,6 +273,15 @@
 				3EE973612BCCBD54003FDFE6 /* BusListHeaderView.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		3EE973632BCCF52E003FDFE6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3EE9735A2BCCBAD6003FDFE6 /* Cells */,
+				3E35858C2BC382A3001934A5 /* BusMainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
