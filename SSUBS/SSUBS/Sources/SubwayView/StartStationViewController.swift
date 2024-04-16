@@ -44,7 +44,7 @@ class StartStationViewController: UIViewController, UITableViewDelegate, UITable
             cellOfStartStationLabel.font = UIFont.systemFont(ofSize: 16) // 폰트 변경
             
             let cellOfStartStationImage = cell.viewWithTag(23) as! UIImageView
-            cellOfStartStationImage.image = UIImage(named: "Star rate") // "LineDummy" 이미지 설정
+            cellOfStartStationImage.image = UIImage(named: "Star_rate") // "LineDummy" 이미지 설정
             
             return cell
         }

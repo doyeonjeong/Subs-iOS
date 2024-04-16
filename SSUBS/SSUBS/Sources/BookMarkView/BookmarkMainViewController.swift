@@ -34,18 +34,37 @@ class BookmarkMainViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 2
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+            case 0:
+                return 370
+            case 1:
+                return 172
+            default:
+                return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
-        // TODO: - Config cell
+        switch indexPath.section {
+            case 0:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "bookmarkBusCell", for: indexPath) as? BookmarkBusCell else { return BookmarkBusCell(style: .default, reuseIdentifier: "bookmarkBusCell") }
+                
+                return cell
+            case 1:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "bookmarkSubwayCell", for: indexPath) as? BookmarkSubwayCell else { return BookmarkSubwayCell(style: .default, reuseIdentifier: "bookmarkSubwayCell") }
+                return cell
+            default:
+                return UITableViewCell()
+        }
         
-        return cell
     }
 }

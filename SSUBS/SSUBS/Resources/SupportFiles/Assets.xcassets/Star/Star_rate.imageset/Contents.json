@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "Star_rate.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Star_rate@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Star rate.png",
+      "filename" : "Star_rate@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

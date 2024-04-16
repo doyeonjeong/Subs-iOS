@@ -124,11 +124,11 @@ class SubwayRouteViewController: UIViewController, UITableViewDelegate, UITableV
         if let button = sender as? UIButton {
                 button.isSelected = !button.isSelected
                 if button.isSelected {
-                    button.setImage(UIImage(named: "Star rate"), for: .normal)
+                    button.setImage(UIImage(named: "Star_rate"), for: .normal)
                     
                     saveBookMark() // BookMark 저장 및 전달
                 } else {
-                    button.setImage(UIImage(named: "Star border"), for: .normal)
+                    button.setImage(UIImage(named: "Star_border"), for: .normal)
                     
                     removeBookMark() // BookMark 삭제
                 }

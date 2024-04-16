@@ -42,7 +42,7 @@ class SubwayMainViewController: UIViewController, UITableViewDelegate, UITableVi
         cellOfNearStationLabel.font = UIFont.systemFont(ofSize: 16) // 폰트 변경
         
         let cellOfNearStationImage = cell.viewWithTag(22) as! UIImageView
-        cellOfNearStationImage.image = UIImage(named: "Star rate") // "LineDummy" 이미지 설정
+        cellOfNearStationImage.image = UIImage(named: "Star_rate") // "LineDummy" 이미지 설정
         
         return cell
     }
