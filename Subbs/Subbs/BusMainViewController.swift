@@ -22,7 +22,7 @@ class BusMainViewController: UIViewController {
 // MARK: - Setup
 extension BusMainViewController {
     private func setupTableView() {
-        //tableView.register(NearbyBusCell.self, forCellReuseIdentifier: NearbyBusCell.identifier)
+        tableView.dataSource = self
     }
 }
 
@@ -34,7 +34,7 @@ extension BusMainViewController {
 // MARK: - UITableViewDataSource
 extension BusMainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return stations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
