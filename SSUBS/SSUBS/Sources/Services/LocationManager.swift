@@ -51,7 +51,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         if let currentLocation = locations.last {
             let latitude = currentLocation.coordinate.latitude
             let longitude = currentLocation.coordinate.longitude
-            print("Current Latitude: \(latitude), Current Longitude: \(longitude)")
+            //print("Current Latitude: \(latitude), Current Longitude: \(longitude)")
         }
     }
 }
